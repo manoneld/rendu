@@ -16,69 +16,6 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -125,28 +62,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <div class="cell">
-
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 603 × 14
+   title    artist top g…¹  year   bpm  nrgy  dnce    dB  live   val   dur acous
+   &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 Hey, So… Train  neo me…  2010    97    89    67    -4     8    80   217    19
+ 2 Love Th… Eminem detroi…  2010    87    93    75    -5    52    64   263    24
+ 3 TiK ToK  Kesha  dance …  2010   120    84    76    -3    29    71   200    10
+ 4 Bad Rom… Lady … dance …  2010   119    92    70    -4     8    71   295     0
+ 5 Just th… Bruno… pop      2010   109    84    64    -5     9    43   221     2
+ 6 Baby     Justi… canadi…  2010    65    86    73    -5    11    54   214     4
+ 7 Dynamite Taio … dance …  2010   120    78    75    -4     4    82   203     0
+ 8 Secrets  OneRe… dance …  2010   148    76    52    -6    12    38   225     7
+ 9 Empire … Alici… hip pop  2010    93    37    48    -8    12    14   216    74
+10 Only Gi… Rihan… barbad…  2010   126    72    79    -4     7    61   235    13
+# … with 593 more rows, 2 more variables: spch &lt;dbl&gt;, pop &lt;dbl&gt;, and
+#   abbreviated variable name ¹​`top genre`</code></pre>
 </div>
-<p>J’ai mis dropout2 qui correspond à spotify (je sais que c’est pas très logique :))</p>
-<section id="exercice-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1">Exercice 1</h2>
+</div>
+<p>Dans cette section, nous procédons à la configuration de R, au téléchargement des packages ainsi qu’à celui des bases de données</p>
+<section id="exercice-1" class="level1">
+<h1>Exercice 1</h1>
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
 <div class="cell">
 
 </div>
-<section id="question-1" class="level3">
-<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>spotify <span class="ot">&lt;-</span> dropout2<span class="sc">%&gt;%</span> <span class="fu">distinct</span>(song, artist, genre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The data set contains 1926 songs.</p>
+<p>The data set contains 584 songs. The data set contains 184 artists. The data set contains 50 genre.</p>
 </section>
-<section id="question-2" class="level3">
-<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dropout2 <span class="sc">|&gt;</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <thead>
@@ -157,691 +103,911 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">1998</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1999</td>
-<td style="text-align: right;">38</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">74</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2001</td>
-<td style="text-align: right;">108</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2002</td>
-<td style="text-align: right;">90</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2003</td>
-<td style="text-align: right;">97</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2004</td>
-<td style="text-align: right;">96</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2005</td>
-<td style="text-align: right;">104</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2006</td>
-<td style="text-align: right;">95</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2007</td>
-<td style="text-align: right;">94</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2008</td>
-<td style="text-align: right;">97</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2009</td>
-<td style="text-align: right;">84</td>
-</tr>
-<tr class="odd">
 <td style="text-align: right;">2010</td>
-<td style="text-align: right;">107</td>
+<td style="text-align: right;">51</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2011</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: right;">53</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2012</td>
-<td style="text-align: right;">115</td>
+<td style="text-align: right;">35</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2013</td>
-<td style="text-align: right;">89</td>
+<td style="text-align: right;">71</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2014</td>
-<td style="text-align: right;">104</td>
+<td style="text-align: right;">58</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: right;">95</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2016</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: right;">80</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2017</td>
-<td style="text-align: right;">111</td>
+<td style="text-align: right;">65</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2018</td>
-<td style="text-align: right;">107</td>
+<td style="text-align: right;">64</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2019</td>
-<td style="text-align: right;">89</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2020</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">31</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+<p>There were 51 songs in 2010, 53 in 2011, 35 in 2O012, 71 in 2013, 58 in 2014, 95 in 2015, 80 in 2016 65 in 2017, 64 in 2018 and 31 in 2019.</p>
 </section>
-<section id="question-3" class="level3">
-<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<section id="question-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nb <span class="ot">&lt;-</span> dropout2 <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(artist) <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_song =</span><span class="fu">n</span>())</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>nb <span class="sc">|&gt;</span> <span class="fu">slice_max</span>(n_song) <span class="sc">|&gt;</span> <span class="fu">pull</span>(artist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Rihanna"</code></pre>
+
 </div>
-</div>
+<p>The most famous artist is Katy Perry.</p>
 </section>
-<section id="question-4" class="level3">
-<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
+<section id="question-4" class="level2">
+<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dropout2 <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(genre) <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">min</span>(tempo), <span class="fu">max</span>(tempo),<span class="fu">mean</span>(tempo),<span class="fu">median</span>(tempo), <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <colgroup>
-<col style="width: 42%">
+<col style="width: 37%">
 <col style="width: 12%">
 <col style="width: 12%">
-<col style="width: 13%">
-<col style="width: 15%">
-<col style="width: 4%">
+<col style="width: 14%">
+<col style="width: 17%">
+<col style="width: 5%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">genre</th>
-<th style="text-align: right;">min(tempo)</th>
-<th style="text-align: right;">max(tempo)</th>
-<th style="text-align: right;">mean(tempo)</th>
-<th style="text-align: right;">median(tempo)</th>
+<th style="text-align: left;">top genre</th>
+<th style="text-align: right;">min(bpm)</th>
+<th style="text-align: right;">max(bpm)</th>
+<th style="text-align: right;">mean(bpm)</th>
+<th style="text-align: right;">median(bpm)</th>
 <th style="text-align: right;">n()</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Dance/Electronic</td>
-<td style="text-align: right;">75.255</td>
-<td style="text-align: right;">179.642</td>
-<td style="text-align: right;">125.5075</td>
-<td style="text-align: right;">126.0410</td>
-<td style="text-align: right;">41</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Folk/Acoustic, pop</td>
-<td style="text-align: right;">94.931</td>
-<td style="text-align: right;">128.945</td>
-<td style="text-align: right;">111.9380</td>
-<td style="text-align: right;">111.9380</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Folk/Acoustic, rock</td>
-<td style="text-align: right;">84.192</td>
-<td style="text-align: right;">84.192</td>
-<td style="text-align: right;">84.1920</td>
-<td style="text-align: right;">84.1920</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Folk/Acoustic, rock, pop</td>
-<td style="text-align: right;">138.585</td>
-<td style="text-align: right;">138.585</td>
-<td style="text-align: right;">138.5850</td>
-<td style="text-align: right;">138.5850</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">R&amp;B</td>
-<td style="text-align: right;">71.815</td>
-<td style="text-align: right;">170.661</td>
-<td style="text-align: right;">106.9248</td>
-<td style="text-align: right;">100.4600</td>
-<td style="text-align: right;">13</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">World/Traditional, Folk/Acoustic</td>
-<td style="text-align: right;">82.803</td>
-<td style="text-align: right;">82.803</td>
-<td style="text-align: right;">82.8030</td>
-<td style="text-align: right;">82.8030</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">World/Traditional, hip hop</td>
-<td style="text-align: right;">98.077</td>
-<td style="text-align: right;">101.993</td>
-<td style="text-align: right;">100.0350</td>
-<td style="text-align: right;">100.0350</td>
+<td style="text-align: left;">acoustic pop</td>
+<td style="text-align: right;">125</td>
+<td style="text-align: right;">185</td>
+<td style="text-align: right;">155.0000</td>
+<td style="text-align: right;">155.0</td>
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">World/Traditional, pop</td>
-<td style="text-align: right;">108.102</td>
-<td style="text-align: right;">108.102</td>
-<td style="text-align: right;">108.1020</td>
-<td style="text-align: right;">108.1020</td>
+<td style="text-align: left;">alaska indie</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">132.0000</td>
+<td style="text-align: right;">132.0</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">World/Traditional, pop, Folk/Acoustic</td>
-<td style="text-align: right;">100.380</td>
-<td style="text-align: right;">104.833</td>
-<td style="text-align: right;">102.6065</td>
-<td style="text-align: right;">102.6065</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">World/Traditional, rock</td>
-<td style="text-align: right;">96.000</td>
-<td style="text-align: right;">140.083</td>
-<td style="text-align: right;">118.0415</td>
-<td style="text-align: right;">118.0415</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">World/Traditional, rock, pop</td>
-<td style="text-align: right;">132.013</td>
-<td style="text-align: right;">139.048</td>
-<td style="text-align: right;">135.5305</td>
-<td style="text-align: right;">135.5305</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">country</td>
-<td style="text-align: right;">103.055</td>
-<td style="text-align: right;">205.570</td>
-<td style="text-align: right;">137.4096</td>
-<td style="text-align: right;">133.3705</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">country, latin</td>
-<td style="text-align: right;">96.055</td>
-<td style="text-align: right;">96.055</td>
-<td style="text-align: right;">96.0550</td>
-<td style="text-align: right;">96.0550</td>
+<td style="text-align: left;">alternative r&amp;b</td>
+<td style="text-align: right;">136</td>
+<td style="text-align: right;">136</td>
+<td style="text-align: right;">136.0000</td>
+<td style="text-align: right;">136.0</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">easy listening</td>
-<td style="text-align: right;">157.920</td>
-<td style="text-align: right;">157.920</td>
-<td style="text-align: right;">157.9200</td>
-<td style="text-align: right;">157.9200</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: left;">art pop</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">115.1250</td>
+<td style="text-align: right;">108.5</td>
+<td style="text-align: right;">8</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">hip hop</td>
-<td style="text-align: right;">64.934</td>
-<td style="text-align: right;">179.974</td>
-<td style="text-align: right;">116.8596</td>
-<td style="text-align: right;">111.6795</td>
-<td style="text-align: right;">124</td>
+<td style="text-align: left;">atl hip hop</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: right;">102.8000</td>
+<td style="text-align: right;">104.0</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">hip hop, Dance/Electronic</td>
-<td style="text-align: right;">95.948</td>
-<td style="text-align: right;">190.151</td>
-<td style="text-align: right;">136.6533</td>
-<td style="text-align: right;">131.4960</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: left;">australian dance</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">128.8333</td>
+<td style="text-align: right;">115.0</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">hip hop, R&amp;B</td>
-<td style="text-align: right;">100.215</td>
-<td style="text-align: right;">151.181</td>
-<td style="text-align: right;">121.1220</td>
-<td style="text-align: right;">111.9700</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">hip hop, country</td>
-<td style="text-align: right;">97.984</td>
-<td style="text-align: right;">97.984</td>
-<td style="text-align: right;">97.9840</td>
-<td style="text-align: right;">97.9840</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">hip hop, latin, Dance/Electronic</td>
-<td style="text-align: right;">171.993</td>
-<td style="text-align: right;">171.993</td>
-<td style="text-align: right;">171.9930</td>
-<td style="text-align: right;">171.9930</td>
+<td style="text-align: left;">australian hip hop</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">95.0000</td>
+<td style="text-align: right;">95.0</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">hip hop, pop</td>
-<td style="text-align: right;">73.003</td>
-<td style="text-align: right;">203.911</td>
-<td style="text-align: right;">118.9581</td>
-<td style="text-align: right;">120.0150</td>
-<td style="text-align: right;">277</td>
+<td style="text-align: left;">australian pop</td>
+<td style="text-align: right;">127</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">153.8000</td>
+<td style="text-align: right;">150.0</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">hip hop, pop, Dance/Electronic</td>
-<td style="text-align: right;">72.022</td>
-<td style="text-align: right;">196.093</td>
-<td style="text-align: right;">122.0034</td>
-<td style="text-align: right;">126.0780</td>
+<td style="text-align: left;">barbadian pop</td>
 <td style="text-align: right;">78</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">hip hop, pop, R&amp;B</td>
-<td style="text-align: right;">60.019</td>
-<td style="text-align: right;">203.862</td>
-<td style="text-align: right;">115.1300</td>
-<td style="text-align: right;">107.2030</td>
-<td style="text-align: right;">244</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">hip hop, pop, R&amp;B, Dance/Electronic</td>
-<td style="text-align: right;">82.820</td>
-<td style="text-align: right;">127.901</td>
-<td style="text-align: right;">103.9113</td>
-<td style="text-align: right;">101.0130</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">hip hop, pop, R&amp;B, latin</td>
-<td style="text-align: right;">82.331</td>
-<td style="text-align: right;">100.010</td>
-<td style="text-align: right;">88.2240</td>
-<td style="text-align: right;">82.3310</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">hip hop, pop, country</td>
-<td style="text-align: right;">129.370</td>
-<td style="text-align: right;">129.370</td>
-<td style="text-align: right;">129.3700</td>
-<td style="text-align: right;">129.3700</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">hip hop, pop, latin</td>
-<td style="text-align: right;">89.661</td>
-<td style="text-align: right;">180.184</td>
-<td style="text-align: right;">127.2119</td>
-<td style="text-align: right;">127.0265</td>
-<td style="text-align: right;">14</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">hip hop, pop, rock</td>
-<td style="text-align: right;">84.858</td>
-<td style="text-align: right;">179.999</td>
-<td style="text-align: right;">123.1123</td>
-<td style="text-align: right;">125.2500</td>
-<td style="text-align: right;">9</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">hip hop, rock, pop</td>
-<td style="text-align: right;">90.052</td>
-<td style="text-align: right;">90.052</td>
-<td style="text-align: right;">90.0520</td>
-<td style="text-align: right;">90.0520</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">latin</td>
-<td style="text-align: right;">90.013</td>
-<td style="text-align: right;">198.075</td>
-<td style="text-align: right;">121.6049</td>
-<td style="text-align: right;">97.0620</td>
+<td style="text-align: right;">206</td>
+<td style="text-align: right;">125.3333</td>
+<td style="text-align: right;">127.0</td>
 <td style="text-align: right;">15</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">metal</td>
-<td style="text-align: right;">79.012</td>
-<td style="text-align: right;">147.387</td>
-<td style="text-align: right;">106.2089</td>
-<td style="text-align: right;">101.9680</td>
+<td style="text-align: left;">baroque pop</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">184</td>
+<td style="text-align: right;">146.0000</td>
+<td style="text-align: right;">146.0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">belgian edm</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">122.0000</td>
+<td style="text-align: right;">122.0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">big room</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: right;">134</td>
+<td style="text-align: right;">122.3000</td>
+<td style="text-align: right;">125.0</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">boy band</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">116.1333</td>
+<td style="text-align: right;">120.0</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">british soul</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">164</td>
+<td style="text-align: right;">116.7273</td>
+<td style="text-align: right;">135.0</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">brostep</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">121.0000</td>
+<td style="text-align: right;">121.0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">canadian contemporary r&amp;b</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">127.0000</td>
+<td style="text-align: right;">120.0</td>
 <td style="text-align: right;">9</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">pop</td>
-<td style="text-align: right;">65.043</td>
-<td style="text-align: right;">195.685</td>
-<td style="text-align: right;">120.5545</td>
-<td style="text-align: right;">119.9515</td>
-<td style="text-align: right;">428</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">pop, Dance/Electronic</td>
-<td style="text-align: right;">84.878</td>
-<td style="text-align: right;">198.065</td>
-<td style="text-align: right;">123.4202</td>
-<td style="text-align: right;">124.0210</td>
-<td style="text-align: right;">221</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pop, Folk/Acoustic</td>
-<td style="text-align: right;">76.026</td>
-<td style="text-align: right;">171.790</td>
-<td style="text-align: right;">118.3595</td>
-<td style="text-align: right;">109.9505</td>
-<td style="text-align: right;">8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">pop, R&amp;B</td>
-<td style="text-align: right;">68.942</td>
-<td style="text-align: right;">210.851</td>
-<td style="text-align: right;">117.0981</td>
-<td style="text-align: right;">111.9100</td>
-<td style="text-align: right;">178</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pop, R&amp;B, Dance/Electronic</td>
-<td style="text-align: right;">84.021</td>
-<td style="text-align: right;">176.051</td>
-<td style="text-align: right;">112.0338</td>
-<td style="text-align: right;">104.0865</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">pop, R&amp;B, easy listening</td>
-<td style="text-align: right;">108.984</td>
-<td style="text-align: right;">108.984</td>
-<td style="text-align: right;">108.9840</td>
-<td style="text-align: right;">108.9840</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pop, country</td>
-<td style="text-align: right;">97.865</td>
-<td style="text-align: right;">147.905</td>
-<td style="text-align: right;">130.5087</td>
-<td style="text-align: right;">136.9250</td>
-<td style="text-align: right;">8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">pop, easy listening, Dance/Electronic</td>
-<td style="text-align: right;">135.099</td>
-<td style="text-align: right;">135.099</td>
-<td style="text-align: right;">135.0990</td>
-<td style="text-align: right;">135.0990</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pop, easy listening, jazz</td>
-<td style="text-align: right;">82.168</td>
-<td style="text-align: right;">127.831</td>
-<td style="text-align: right;">104.9995</td>
-<td style="text-align: right;">104.9995</td>
+<td style="text-align: left;">canadian hip hop</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">109.0000</td>
+<td style="text-align: right;">109.0</td>
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">pop, latin</td>
-<td style="text-align: right;">79.997</td>
-<td style="text-align: right;">177.833</td>
-<td style="text-align: right;">113.5903</td>
-<td style="text-align: right;">104.2540</td>
-<td style="text-align: right;">28</td>
+<td style="text-align: left;">canadian latin</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">98.0000</td>
+<td style="text-align: right;">98.0</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">pop, rock</td>
-<td style="text-align: right;">77.967</td>
-<td style="text-align: right;">176.667</td>
-<td style="text-align: right;">121.0976</td>
-<td style="text-align: right;">119.0095</td>
-<td style="text-align: right;">26</td>
+<td style="text-align: left;">canadian pop</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">121.5000</td>
+<td style="text-align: right;">118.0</td>
+<td style="text-align: right;">34</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">pop, rock, Dance/Electronic</td>
-<td style="text-align: right;">87.016</td>
-<td style="text-align: right;">189.857</td>
-<td style="text-align: right;">130.3682</td>
-<td style="text-align: right;">129.9590</td>
+<td style="text-align: left;">candy pop</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">109.0000</td>
+<td style="text-align: right;">109.0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">celtic rock</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">85.0000</td>
+<td style="text-align: right;">85.0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chicago rap</td>
+<td style="text-align: right;">125</td>
+<td style="text-align: right;">125</td>
+<td style="text-align: right;">125.0000</td>
+<td style="text-align: right;">125.0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">colombian pop</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">126.0000</td>
+<td style="text-align: right;">128.0</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">complextro</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: right;">120.3333</td>
+<td style="text-align: right;">127.0</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">contemporary country</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">86.0000</td>
+<td style="text-align: right;">86.0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dance pop</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">202</td>
+<td style="text-align: right;">118.4862</td>
+<td style="text-align: right;">120.0</td>
+<td style="text-align: right;">327</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">danish pop</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">120.0000</td>
+<td style="text-align: right;">120.0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">detroit hip hop</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">84.5000</td>
+<td style="text-align: right;">84.5</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">downtempo</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">167</td>
+<td style="text-align: right;">133.5000</td>
+<td style="text-align: right;">133.5</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">edm</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">100.4000</td>
+<td style="text-align: right;">100.0</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">electro</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">108.0000</td>
+<td style="text-align: right;">108.0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">electro house</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">124.0000</td>
+<td style="text-align: right;">124.0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">electronic trap</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">98.0000</td>
+<td style="text-align: right;">98.0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">electropop</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">112.8462</td>
+<td style="text-align: right;">103.0</td>
 <td style="text-align: right;">13</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">pop, rock, Folk/Acoustic</td>
-<td style="text-align: right;">102.961</td>
-<td style="text-align: right;">112.960</td>
-<td style="text-align: right;">107.9605</td>
-<td style="text-align: right;">107.9605</td>
+<td style="text-align: left;">escape room</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: right;">127.0000</td>
+<td style="text-align: right;">127.0</td>
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">pop, rock, metal</td>
-<td style="text-align: right;">82.952</td>
-<td style="text-align: right;">155.827</td>
-<td style="text-align: right;">128.9358</td>
-<td style="text-align: right;">134.7165</td>
-<td style="text-align: right;">14</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">rock</td>
-<td style="text-align: right;">74.989</td>
-<td style="text-align: right;">199.935</td>
-<td style="text-align: right;">129.9427</td>
-<td style="text-align: right;">123.8380</td>
-<td style="text-align: right;">58</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">rock, Dance/Electronic</td>
-<td style="text-align: right;">127.988</td>
-<td style="text-align: right;">127.988</td>
-<td style="text-align: right;">127.9880</td>
-<td style="text-align: right;">127.9880</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">rock, Folk/Acoustic, easy listening</td>
-<td style="text-align: right;">122.979</td>
-<td style="text-align: right;">122.979</td>
-<td style="text-align: right;">122.9790</td>
-<td style="text-align: right;">122.9790</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">rock, Folk/Acoustic, pop</td>
-<td style="text-align: right;">80.529</td>
-<td style="text-align: right;">80.529</td>
-<td style="text-align: right;">80.5290</td>
-<td style="text-align: right;">80.5290</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">rock, R&amp;B, Folk/Acoustic, pop</td>
-<td style="text-align: right;">105.987</td>
-<td style="text-align: right;">105.987</td>
-<td style="text-align: right;">105.9870</td>
-<td style="text-align: right;">105.9870</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">rock, blues</td>
-<td style="text-align: right;">123.904</td>
-<td style="text-align: right;">141.933</td>
-<td style="text-align: right;">132.9185</td>
-<td style="text-align: right;">132.9185</td>
+<td style="text-align: left;">folk-pop</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">80.5000</td>
+<td style="text-align: right;">80.5</td>
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">rock, blues, latin</td>
-<td style="text-align: right;">97.911</td>
-<td style="text-align: right;">127.981</td>
-<td style="text-align: right;">112.9460</td>
-<td style="text-align: right;">112.9460</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">rock, classical</td>
-<td style="text-align: right;">81.663</td>
-<td style="text-align: right;">81.663</td>
-<td style="text-align: right;">81.6630</td>
-<td style="text-align: right;">81.6630</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">rock, easy listening</td>
-<td style="text-align: right;">114.999</td>
-<td style="text-align: right;">114.999</td>
-<td style="text-align: right;">114.9990</td>
-<td style="text-align: right;">114.9990</td>
+<td style="text-align: left;">french indie pop</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123.0000</td>
+<td style="text-align: right;">123.0</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">rock, metal</td>
-<td style="text-align: right;">89.342</td>
-<td style="text-align: right;">187.961</td>
-<td style="text-align: right;">126.2446</td>
-<td style="text-align: right;">118.9815</td>
-<td style="text-align: right;">38</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">rock, pop</td>
-<td style="text-align: right;">68.976</td>
-<td style="text-align: right;">184.086</td>
-<td style="text-align: right;">124.9503</td>
-<td style="text-align: right;">126.3260</td>
-<td style="text-align: right;">43</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">rock, pop, Dance/Electronic</td>
-<td style="text-align: right;">113.049</td>
-<td style="text-align: right;">181.994</td>
-<td style="text-align: right;">135.7678</td>
-<td style="text-align: right;">127.4480</td>
-<td style="text-align: right;">8</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">rock, pop, metal</td>
-<td style="text-align: right;">126.115</td>
-<td style="text-align: right;">152.034</td>
-<td style="text-align: right;">140.2785</td>
-<td style="text-align: right;">141.4825</td>
+<td style="text-align: left;">hip hop</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">93.7500</td>
+<td style="text-align: right;">91.5</td>
 <td style="text-align: right;">4</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">hip pop</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">100.6667</td>
+<td style="text-align: right;">98.5</td>
+<td style="text-align: right;">6</td>
+</tr>
 <tr class="even">
-<td style="text-align: left;">rock, pop, metal, Dance/Electronic</td>
-<td style="text-align: right;">105.013</td>
-<td style="text-align: right;">105.013</td>
-<td style="text-align: right;">105.0130</td>
-<td style="text-align: right;">105.0130</td>
+<td style="text-align: left;">hollywood</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">92.0000</td>
+<td style="text-align: right;">92.0</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">set()</td>
-<td style="text-align: right;">68.507</td>
-<td style="text-align: right;">184.819</td>
-<td style="text-align: right;">120.1329</td>
-<td style="text-align: right;">126.9620</td>
-<td style="text-align: right;">22</td>
+<td style="text-align: left;">house</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">122.0000</td>
+<td style="text-align: right;">122.0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">indie pop</td>
+<td style="text-align: right;">148</td>
+<td style="text-align: right;">155</td>
+<td style="text-align: right;">151.5000</td>
+<td style="text-align: right;">151.5</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">irish singer-songwriter</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129.0000</td>
+<td style="text-align: right;">129.0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">latin</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">140.7500</td>
+<td style="text-align: right;">141.5</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">metropopolis</td>
+<td style="text-align: right;">127</td>
+<td style="text-align: right;">127</td>
+<td style="text-align: right;">127.0000</td>
+<td style="text-align: right;">127.0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">moroccan pop</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">110.0000</td>
+<td style="text-align: right;">110.0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">neo mellow</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">109.1111</td>
+<td style="text-align: right;">116.0</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">permanent wave</td>
+<td style="text-align: right;">125</td>
+<td style="text-align: right;">148</td>
+<td style="text-align: right;">137.2500</td>
+<td style="text-align: right;">138.0</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pop</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">117.0667</td>
+<td style="text-align: right;">117.0</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tropical house</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">132.6667</td>
+<td style="text-align: right;">139.0</td>
+<td style="text-align: right;">3</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
-<section id="question-5" class="level3">
-<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<section id="question-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  dropout2<span class="sc">|&gt;</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">median</span>(energy),<span class="fu">median</span>(danceability))</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 23 × 3
-    year `median(energy)` `median(danceability)`
-   &lt;int&gt;            &lt;dbl&gt;                  &lt;dbl&gt;
- 1  1998            0.445                  0.727
- 2  1999            0.799                  0.686
- 3  2000            0.77                   0.704
- 4  2001            0.736                  0.680
- 5  2002            0.747                  0.688
- 6  2003            0.734                  0.662
- 7  2004            0.746                  0.706
- 8  2005            0.723                  0.677
- 9  2006            0.723                  0.687
-10  2007            0.778                  0.644
-# … with 13 more rows</code></pre>
+<pre><code># A tibble: 10 × 3
+    year `median(nrgy)` `median(dnce)`
+   &lt;int&gt;          &lt;dbl&gt;          &lt;dbl&gt;
+ 1  2010             82           67  
+ 2  2011             78           65  
+ 3  2012             79           67  
+ 4  2013             78           63  
+ 5  2014             72           63.5
+ 6  2015             75           67  
+ 7  2016             71           63  
+ 8  2017             72           68  
+ 9  2018             67           67.5
+10  2019             68           70  </code></pre>
 </div>
 </div>
 </section>
-<section id="question-6" class="level3">
-<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
+<section id="question-6" class="level2">
+<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span><span class="st">`</span><span class="at">median(energy)</span><span class="st">`</span>)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="RenduTP_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
 <div class="cell-output-display">
 <p><img src="RenduTP_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span><span class="st">`</span><span class="at">median(danceability)</span><span class="st">`</span>)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="RenduTP_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
 </section>
 </section>
-<section id="exercice-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2">Exercice 2</h2>
-<section id="question-1-1" class="level3">
-<h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
+<section id="exercice-2" class="level1">
+<h1>Exercice 2</h1>
+<section id="question" class="level2">
+<h2 class="anchored" data-anchor-id="question">Question</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dropout <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gender, <span class="st">`</span><span class="at">Marital status</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">median</span>(<span class="st">`</span><span class="at">Age at enrollment</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'Gender'. You can override using the
-`.groups` argument.</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 3
-# Groups:   Gender [2]
-   Gender `Marital status`  `median(\`Age at enrollment\`)`
-   &lt;fct&gt;  &lt;fct&gt;                                       &lt;dbl&gt;
- 1 Male   single                                       20  
- 2 Male   married                                      37  
- 3 Male   divorced                                     40.5
- 4 Male   widower                                      43  
- 5 Male   facto union                                  34  
- 6 Male   legally separated                            55  
- 7 Female single                                       19  
- 8 Female married                                      34  
- 9 Female divorced                                     38  
-10 Female widower                                      21  
-11 Female facto union                                  27  
-12 Female legally separated                            41  </code></pre>
+<pre><code># A tibble: 4,424 × 37
+   Marital stat…¹ Appli…² Appli…³ Course Dayti…⁴ Previ…⁵ Previ…⁶ Nacio…⁷ Mothe…⁸
+   &lt;fct&gt;          &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;  &lt;fct&gt;   &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt;   &lt;fct&gt;  
+ 1 single         17      5       171    1       1          122  1       19     
+ 2 single         15      1       9254   1       1          160  1       1      
+ 3 single         1       5       9070   1       1          122  1       37     
+ 4 single         17      2       9773   1       1          122  1       38     
+ 5 married        39      1       8014   0       1          100  1       37     
+ 6 married        39      1       9991   0       19         133. 1       37     
+ 7 single         1       1       9500   1       1          142  1       19     
+ 8 single         18      4       9254   1       1          119  1       37     
+ 9 single         1       3       9238   1       1          137  62      1      
+10 single         1       1       9238   1       1          138  1       1      
+# … with 4,414 more rows, 28 more variables: `Father's qualification` &lt;fct&gt;,
+#   `Mother's occupation` &lt;fct&gt;, `Father's occupation` &lt;fct&gt;,
+#   `Admission grade` &lt;dbl&gt;, Displaced &lt;fct&gt;,
+#   `Educational special needs` &lt;fct&gt;, Debtor &lt;fct&gt;,
+#   `Tuition fees up to date` &lt;fct&gt;, Gender &lt;fct&gt;, `Scholarship holder` &lt;lgl&gt;,
+#   `Age at enrollment` &lt;dbl&gt;, International &lt;fct&gt;,
+#   `Curricular units 1st sem (credited)` &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Marital status</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: right;">nb</th>
+<th style="text-align: right;">median_age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">single</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">1367</td>
+<td style="text-align: right;">20.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">single</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">2552</td>
+<td style="text-align: right;">19.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">married</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: right;">37.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">married</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">221</td>
+<td style="text-align: right;">34.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">divorced</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">40.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">divorced</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">38.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">widower</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">43.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">widower</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">21.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">facto union</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">34.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">facto union</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">27.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">legally separated</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">55.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">legally separated</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">41.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="question-2-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-1">Question 2</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Marital status</th>
+<th style="text-align: right;">nb</th>
+<th style="text-align: right;">Male</th>
+<th style="text-align: right;">Female</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">single</td>
+<td style="text-align: right;">1367</td>
+<td style="text-align: right;">20.0</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">single</td>
+<td style="text-align: right;">2552</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">married</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: right;">37.0</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">married</td>
+<td style="text-align: right;">221</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">divorced</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">40.5</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">divorced</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">widower</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">43.0</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">widower</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">facto union</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">34.0</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">facto union</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">legally separated</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">55.0</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">legally separated</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">41</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="question-3-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-1">Question 3</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Target</th>
+<th style="text-align: right;">Curricular units 1st sem (credited)</th>
+<th style="text-align: right;">Curricular units 1st sem (enrolled)</th>
+<th style="text-align: right;">Curricular units 1st sem (evaluations)</th>
+<th style="text-align: right;">Curricular units 1st sem (approved)</th>
+<th style="text-align: right;">Curricular units 1st sem (grade)</th>
+<th style="text-align: right;">Curricular units 1st sem (without evaluations)</th>
+<th style="text-align: right;">Curricular units 2nd sem (credited)</th>
+<th style="text-align: right;">Curricular units 2nd sem (enrolled)</th>
+<th style="text-align: right;">Curricular units 2nd sem (evaluations)</th>
+<th style="text-align: right;">Curricular units 2nd sem (approved)</th>
+<th style="text-align: right;">Curricular units 2nd sem (grade)</th>
+<th style="text-align: right;">Curricular units 2nd sem (without evaluations)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: right;">0.6094300</td>
+<td style="text-align: right;">5.821253</td>
+<td style="text-align: right;">7.751583</td>
+<td style="text-align: right;">2.551724</td>
+<td style="text-align: right;">7.256655</td>
+<td style="text-align: right;">0.1921182</td>
+<td style="text-align: right;">0.4496833</td>
+<td style="text-align: right;">5.780436</td>
+<td style="text-align: right;">7.173821</td>
+<td style="text-align: right;">1.940183</td>
+<td style="text-align: right;">5.899339</td>
+<td style="text-align: right;">0.2378607</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: right;">0.8474423</td>
+<td style="text-align: right;">6.669534</td>
+<td style="text-align: right;">8.276596</td>
+<td style="text-align: right;">6.232232</td>
+<td style="text-align: right;">12.643655</td>
+<td style="text-align: right;">0.0882752</td>
+<td style="text-align: right;">0.6668176</td>
+<td style="text-align: right;">6.628339</td>
+<td style="text-align: right;">8.142146</td>
+<td style="text-align: right;">6.177003</td>
+<td style="text-align: right;">12.697276</td>
+<td style="text-align: right;">0.0805794</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: right;">0.5075567</td>
+<td style="text-align: right;">5.964735</td>
+<td style="text-align: right;">9.341310</td>
+<td style="text-align: right;">4.318640</td>
+<td style="text-align: right;">11.125257</td>
+<td style="text-align: right;">0.1775819</td>
+<td style="text-align: right;">0.3589421</td>
+<td style="text-align: right;">5.938287</td>
+<td style="text-align: right;">9.435768</td>
+<td style="text-align: right;">4.057934</td>
+<td style="text-align: right;">11.117364</td>
+<td style="text-align: right;">0.1876574</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="question-4-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-4-1">Question 4</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 59%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Units</th>
+<th style="text-align: right;">Dropout</th>
+<th style="text-align: right;">Graduate</th>
+<th style="text-align: right;">Enrolled</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Curricular units 1st sem (credited)</td>
+<td style="text-align: right;">0.6094300</td>
+<td style="text-align: right;">0.8474423</td>
+<td style="text-align: right;">0.5075567</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 1st sem (enrolled)</td>
+<td style="text-align: right;">5.8212526</td>
+<td style="text-align: right;">6.6695337</td>
+<td style="text-align: right;">5.9647355</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Curricular units 1st sem (evaluations)</td>
+<td style="text-align: right;">7.7515834</td>
+<td style="text-align: right;">8.2765957</td>
+<td style="text-align: right;">9.3413098</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 1st sem (approved)</td>
+<td style="text-align: right;">2.5517241</td>
+<td style="text-align: right;">6.2322318</td>
+<td style="text-align: right;">4.3186398</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Curricular units 1st sem (grade)</td>
+<td style="text-align: right;">7.2566555</td>
+<td style="text-align: right;">12.6436545</td>
+<td style="text-align: right;">11.1252573</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 1st sem (without evaluations)</td>
+<td style="text-align: right;">0.1921182</td>
+<td style="text-align: right;">0.0882752</td>
+<td style="text-align: right;">0.1775819</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Curricular units 2nd sem (credited)</td>
+<td style="text-align: right;">0.4496833</td>
+<td style="text-align: right;">0.6668176</td>
+<td style="text-align: right;">0.3589421</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 2nd sem (enrolled)</td>
+<td style="text-align: right;">5.7804363</td>
+<td style="text-align: right;">6.6283386</td>
+<td style="text-align: right;">5.9382872</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Curricular units 2nd sem (evaluations)</td>
+<td style="text-align: right;">7.1738213</td>
+<td style="text-align: right;">8.1421458</td>
+<td style="text-align: right;">9.4357683</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 2nd sem (approved)</td>
+<td style="text-align: right;">1.9401830</td>
+<td style="text-align: right;">6.1770032</td>
+<td style="text-align: right;">4.0579345</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Curricular units 2nd sem (grade)</td>
+<td style="text-align: right;">5.8993389</td>
+<td style="text-align: right;">12.6972758</td>
+<td style="text-align: right;">11.1173643</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 2nd sem (without evaluations)</td>
+<td style="text-align: right;">0.2378607</td>
+<td style="text-align: right;">0.0805794</td>
+<td style="text-align: right;">0.1876574</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>

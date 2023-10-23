@@ -2,92 +2,152 @@
 title: "Rendu"
 author: Manon Eluard 
 format: html
-editor: visual
+echo: false
+message: false
+warning: false
 ---
 
 ```{r Rconfiguration}
-#| echo: false 
-#| message: false 
 library(here)
 library(ggplot2)
+library(dplyr)
+library(tidyr)
 here::i_am("rendu.Rproj")
 dropout <- readRDS("dropout.Rds")
-dropout2<-readRDS("top-spotify-hits-2000-2019.Rds")
+spotify <-readRDS("top-spotify-songs-from-20102019-by-year.Rds")
 ```
 
-J'ai mis dropout2 qui correspond à spotify (je sais que c'est pas très logique :))
+Dans cette section, nous procédons à la configuration de R, au téléchargement des packages ainsi qu'à celui des bases de données
 
-## Exercice 1
+# Exercice 1
+
+## Question 1
 
 ```{r}
-#| echo: false 
-#| message: false 
-library(tidyr)
-library(dplyr)
+songs <- (spotify %>% distinct(title))
+artists <- (spotify %>% distinct(artist))
+genre <- (spotify %>% distinct(`top genre`))
 ```
 
-### Question 1
+The data set contains `r nrow(songs)` songs.
+The data set contains `r nrow(artists)` artists.
+The data set contains `r nrow(genre)` genre.
+
+## Question 2
 
 ```{r}
-spotify <- dropout2%>% distinct(song, artist, genre)
-```
-
-The data set contains `r nrow(spotify)` songs.
-
-### Question 2
-
-```{r}
-dropout2 |> 
+spotify |> 
   group_by(year) |>
   summarise(n()) |>
   knitr::kable()
 ```
 
-### Question 3
+There were 51 songs in 2010, 53 in 2011, 35 in 2O012, 71 in 2013, 58 in 2014, 95 in 2015, 80 in 2016 65 in 2017, 64 in 2018 and 31 in 2019. 
+
+## Question 3
 
 ```{r}
-nb <- dropout2 |> 
-  group_by(artist) |>
-  summarise(n_song =n())
+songs_artist <- spotify |>
+  distinct(title, artist)
 
-nb |> slice_max(n_song) |> pull(artist)
+songs_artist |>
+  count(artist) |>
+  slice_max(n)
+
+famous_artist <- songs_artist |>
+  count(artist) |>
+  slice_max (n) |>
+  pull(artist)
+
+nb_famous_artist <- songs_artist |>
+  count(artist) |>
+  slice_max(n) |>
+  pull(n)
+
 ```
 
-### Question 4
+The most famous artist is Katy Perry and she has 17 songs. 
+
+## Question 4
 
 ```{r}
-dropout2 |> 
-  group_by(genre) |>
-  summarise(min(tempo), max(tempo),mean(tempo),median(tempo), n()) |>
+spotify |> 
+  group_by(`top genre`) |>
+  summarise(min(bpm), max(bpm),mean(bpm),median(bpm), n()) |>
   knitr::kable()
 ```
 
-### Question 5
+## Question 5
 
 ```{r}
 df <- 
-  dropout2|> 
+  spotify|> 
   group_by(year) |> 
-  summarise(median(energy),median(danceability))
+  summarise(median(nrgy),median(dnce))
 df
 ```
 
-### Question 6
+For example, the median energy in 2010 was 82 and the median danceability was 67.
+## Question 6
 
 ```{r}
-ggplot(df, aes(x=year, y=`median(energy)`)) + geom_line()
+ggplot(df, aes(x=year, y=`median(nrgy)`)) + geom_line()
 ```
+
+The median energy is decreasing over time. 
 
 ```{r}
-ggplot(df, aes(x=year, y=`median(danceability)`)) + geom_line()
+ggplot(df, aes(x=year, y=`median(dnce)`)) + geom_line()
 ```
 
-## Exercice 2
+The median danceability is increasing over time.
 
-### Question 1
+# Exercice 2
+
+## Question 
 
 ```{r}
-dropout |>
-  group_by(Gender, `Marital status`) |>
-  summarise(median(`Age at enrollment`))
+median_age_by_gender <- dropout |>
+  group_by(`Marital status`, Gender) |>
+  summarise(nb = n(), median_age=median(`Age at enrollment`))
+knitr::kable(median_age_by_gender)
 ```
+
+For instance, the median age at enrollment for a single male is 20. On the other hand, the median age at enrollment for a single female is 19. We can see thnaks to this data frame that the median age increases when the "male" or "female" is married, divorced, widower, facto union or legally separated, which is logical. 
+
+## Question 2 
+
+```{r}
+median_age_by_gender_bis <- median_age_by_gender |>
+  pivot_wider(values_from = median_age, names_from = Gender)
+knitr::kable(median_age_by_gender_bis)
+```
+
+We have the same results compared to question 1 but in a different way. This type of presentation allow us to better understand the differences between age at enrollment between "male" and "female". 
+
+## Question 3
+
+```{r}
+curricular_units <- dropout |> select(Target, `Curricular units 1st sem (credited)`, `Curricular units 1st sem (enrolled)`, `Curricular units 1st sem (evaluations)`, `Curricular units 1st sem (approved)`, `Curricular units 1st sem (grade)`, `Curricular units 1st sem (without evaluations)`,`Curricular units 2nd sem (credited)`, `Curricular units 2nd sem (enrolled)`, `Curricular units 2nd sem (evaluations)`, `Curricular units 2nd sem (approved)`, `Curricular units 2nd sem (grade)`, `Curricular units 2nd sem (without evaluations)`)
+
+mean_curricular_units <- curricular_units |>
+  group_by(Target) |>
+  summarise(across(where(is.numeric), mean))
+
+knitr::kable(mean_curricular_units)
+```
+
+This table shows, logically, that the amount  of curricular units for gratuaded people are superior to that of dropout and enrolled people,, except for the curricular units "without evaluaations". 
+
+## Question 4 
+
+```{r}
+mean2_curricular_units <- mean_curricular_units |>
+  pivot_longer(starts_with("Curricular unit"), names_to ="Units") |>
+  pivot_wider(names_from = Target)
+
+knitr::kable(mean2_curricular_units)
+```
+
+
+
